@@ -1,0 +1,17 @@
+{
+  "name": "task-management",
+  "version": "1.0.0",
+  "description": "basic task management application",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Madubuike Ekene Michael",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.1",
+    "morgan": "^1.10.0"
+  }
+}
