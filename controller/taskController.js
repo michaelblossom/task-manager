@@ -24,3 +24,21 @@ exports.getAllTasks = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+//update task
+exports.updateTask = catchAsync(async (req, res, next) => {
+  const task = await Task.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+  if (!task) {
+    return next(new appError("No task found with this Id", 404));
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      task,
+    },
+  });
+});

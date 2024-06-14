@@ -7,3 +7,5 @@ router
   .route("/")
   .get(taskController.getAllTasks)
   .post(taskController.createTasks);
+
+router.route("/:id").patch(taskController.updateTask);
