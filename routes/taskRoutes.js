@@ -8,4 +8,7 @@ router
   .get(taskController.getAllTasks)
   .post(taskController.createTasks);
 
-router.route("/:id").patch(taskController.updateTask);
+router
+  .route("/:id")
+  .patch(taskController.updateTask)
+  .delete(taskController.deleteTask);
