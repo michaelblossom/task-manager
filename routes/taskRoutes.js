@@ -12,3 +12,5 @@ router
   .route("/:id")
   .patch(taskController.updateTask)
   .delete(taskController.deleteTask);
+
+module.exports = router;

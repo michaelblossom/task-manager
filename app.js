@@ -2,7 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 
 const AppError = require("./utils/appError");
-// const userRouter = require("./routes/userRoute");
+const taskRouter = require("./routes/taskRoutes");
 
 const app = express();
 if (process.env.NODE_ENV === "development") {
@@ -17,10 +17,8 @@ app.get("/", (req, res, next) => {
   next();
 });
 //defining routes
-// app.use("/", require("./routes/index"));
-// app.use("/api/v1/url/", require("./routes/url"));
 
-// app.use("/api/v1/user", userRouter);
+app.use("/api/v1/tasks", taskRouter);
 
 // handling undefined route
 app.all("*", (req, res, next) => {

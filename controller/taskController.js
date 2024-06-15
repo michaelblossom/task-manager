@@ -1,4 +1,4 @@
-const Task = require("../models/taskModel");
+const Task = require("./../model/taskModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
 // create tour
