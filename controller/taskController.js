@@ -1,9 +1,9 @@
 const Task = require("./../model/taskModel");
-const catchAsync = require("../utils/catchAsync");
-const AppError = require("../utils/appError");
+const catchAsync = require("./../utils/catchAsync");
+const AppError = require("./../utils/appError");
 // create tour
 exports.createTasks = catchAsync(async (req, res, next) => {
-  const newTour = await Task.create(req.body);
+  const newTask = await Task.create(req.body);
   res.status(201).json({
     status: "success",
     data: {
@@ -32,7 +32,7 @@ exports.updateTask = catchAsync(async (req, res, next) => {
     runValidators: true,
   });
   if (!task) {
-    return next(new appError("No task found with this Id", 404));
+    return next(new AppError("No task found with this Id", 404));
   }
 
   res.status(200).json({
@@ -46,7 +46,7 @@ exports.updateTask = catchAsync(async (req, res, next) => {
 exports.deleteTask = catchAsync(async (req, res, next) => {
   const task = await Task.findByIdAndDelete(req.params.id);
   if (!task) {
-    return next(new appError("No task found with this Id", 404));
+    return next(new AppError("No task found with this Id", 404));
   }
   res.status(200).json({
     status: "success",
